@@ -10,13 +10,19 @@ export default function PasswordResetPage() {
   const router = useRouter();
   const searchParams = useSearchParams();
 
-  const token = searchParams.get("token"); // ✅ get token from URL
+  const token = searchParams.get("token") || ""; // ✅ get token from URL
      console.log(token);
   const [buttonDisabled, setButtonDisabled] = useState(true);
   const [loading, setLoading] = useState(false);
   const [pass1, setpass1] = useState("");
   const [pass2, setpass2] = useState("");
   const [message,setMessage]=useState("");
+
+  useEffect(() => {
+  if (!token) {
+    toast.error("Invalid or expired link");
+  }
+}, [token]);
 
   useEffect(() => {
     if (pass1.length > 0 && pass1 === pass2) {
