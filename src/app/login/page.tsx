@@ -55,7 +55,7 @@ export default function LoginPage(){
 
     return (
         <div className="flex flex-col items-center justify-center min-h-screen py-2">
-           <h1>{loading ? "Logging in..." : "Login"}</h1>
+           <h1>{loading ? "Logging in..." : "Logil"}</h1>
            <hr/>
           
 
